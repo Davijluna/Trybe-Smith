@@ -9,5 +9,6 @@ const userController = new ProductController();
 
 app.get('/', (_req: Request, res: Response) => res.json({ ok: true }));
 app.post('/products', userController.create); ///
+app.get('/products', userController.getAll);
 
 export default app;
