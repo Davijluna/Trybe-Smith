@@ -10,7 +10,7 @@ class UserService {
   }
 
   public create(product: Users): Promise<Users> {
-    const users = this.model.createUser(product);
+    const users = this.model.create(product);
     return users;
   }
 }
