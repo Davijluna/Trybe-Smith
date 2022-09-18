@@ -1,6 +1,7 @@
 // TIRADO COMO EXEMPLO O CUORSE
 import { ResultSetHeader, Pool } from 'mysql2/promise';
 import Products from '../interface/Products.Interface';
+import Users from '../interface/Users .Interfaces';
 // import connection from './connection'; /// descer está linha
 
 export default class ProductsModel {
@@ -24,9 +25,19 @@ export default class ProductsModel {
       'INSERT INTO Trybesmith.Products (name, amount) VALUES (?,?)',
       [name, amount],
     );
-
     const [dataInserted] = result;
     const { insertId } = dataInserted;
     return { id: insertId, ...product };
+  }
+
+  public async createUser(user: Users): Promise<Users> {
+    const { username, classe, level, password } = user; 
+    const result = await this.connection.execute<ResultSetHeader>(
+      'INSERT INTO Trybesmith.Users (username, classe, level, password) VALUES (?,?,?,?)',
+      [username, classe, level, password],
+    );
+    const [dataInserted] = result;
+    const { insertId: id } = dataInserted;
+    return { id, ...user } as Users;
   }
 }
