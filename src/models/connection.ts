@@ -10,3 +10,4 @@ const connection = mysql.createPool({
 }); 
 
 export default connection;
+// NÃO MEXER ESSE ESTÁ CERTO 
