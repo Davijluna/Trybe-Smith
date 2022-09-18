@@ -9,6 +9,11 @@ class ProductsService {
     this.model = new ProductsModel(connection); // testar com 'connection' como parametro.
   }
 
+  public async getAll(): Promise<Products[]> {
+    const product = await this.model.getAll();
+    return product;
+  }
+
   public create(product: Products): Promise<Products> {
     const users = this.model.create(product);
     return users;
