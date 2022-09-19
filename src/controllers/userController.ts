@@ -6,8 +6,8 @@ class UserController {
 
   public create = async (req: Request, res: Response) => {
     const result = req.body;
-    const product = await this.userService.create(result);
-    res.status(201).json(product);
+    const token = await this.userService.create(result);
+    res.status(201).json({ token });
   };
 }
 
