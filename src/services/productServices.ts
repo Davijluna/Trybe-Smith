@@ -14,8 +14,8 @@ class ProductsService {
     return product;
   }
 
-  public create(product: Products): Promise<Products> {
-    const users = this.model.create(product);
+  public async create(product: Products): Promise<Products> {
+    const users = await this.model.create(product);
     return users;
   }
 }
