@@ -2,11 +2,11 @@ import express, { Request, Response } from 'express'; //
 import ProductController from './controllers/productController'; //
 import UserController from './controllers/userController';
 
-import {
-  checkUsername,
-  checkClasse,
-  checkLevel,
-  checkPassword } from './middlewares/userMiddleware';
+// import {
+//   checkUsername,
+//   checkClasse,
+//   checkLevel,
+//   checkPassword } from './middlewares/userMiddleware';
 
 const app = express();
 
@@ -20,10 +20,10 @@ app.post('/products', productController.create); ///
 app.get('/products', productController.getAll);
 app.post(
   '/users',
-  checkUsername,
-  checkClasse,
-  checkLevel,
-  checkPassword,
+  // checkUsername,
+  // checkClasse,
+  // checkLevel,
+  // checkPassword,
   userController.create,
 );
 
