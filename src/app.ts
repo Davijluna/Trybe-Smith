@@ -1,9 +1,10 @@
 import express, { Request, Response } from 'express'; //
 import ProductController from './controllers/productController'; //
 import UserController from './controllers/userController';
+import OdersController from './controllers/orederController';
 
 // import {
-//   checkUsername,
+//   checkUsername,/orders
 //   checkClasse,
 //   checkLevel,
 //   checkPassword } from './middlewares/userMiddleware';
@@ -14,6 +15,7 @@ app.use(express.json());
 
 const productController = new ProductController();
 const userController = new UserController();
+const orederController = new OdersController();
 
 app.get('/', (_req: Request, res: Response) => res.json({ ok: true }));
 app.post('/products', productController.create); ///
@@ -27,4 +29,5 @@ app.post(
   userController.create,
 );
 
+app.get('/orders', orederController.getById);
 export default app;
