@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
-import Users from '../interface/Users .Interfaces';
+import Users from '../interface/Users .Interface';
 /// 
 
 export const checkUsername = async (req: Request, res: Response, next: NextFunction) => {
   const user = req.body as Users;
   if (!user.username) {
-    return res.status(401).json({ message: '"username" is require' });
+    return res.status(401).json({ message: '"username" is required' });
   }
   if (user.username.length <= 2) {
     return res
